@@ -421,7 +421,8 @@ static ZEND_COLD ZEND_NORETURN void zend_mm_safe_error(zend_mm_heap *heap,
 	} zend_catch {
 	}  zend_end_try();
 	heap->overflow = 0;
-	zend_bailout();
+	fprintf(stderr, "zend_mm_safe_error: OOM abort\n");
+	abort();
 	exit(1);
 }
 
